@@ -80,7 +80,7 @@ and datepart(year,REPORTS.ReportDate)=$P{nam}
 				<textElement>
 					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
 				</textElement>
-				<text><![CDATA[© ACCP 1207B Group II. CNC-APTECH]]></text>
+				<text><![CDATA[© DMX - Banker Group Aprotrain Aptech]]></text>
 			</staticText>
 		</band>
 	</title>
