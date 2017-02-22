@@ -78,38 +78,38 @@ public class AboutUs extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("NGO DINH LUAN  Student684864");
+        jLabel3.setText("Nguyễn Trọng Hiến C1508L3699");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 190, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("NGUYEN MINH KIET Student684622");
+        jLabel11.setText("Đỗ Hà Long C1508L3694");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("LUU VINH THONG Student685006 ");
+        jLabel12.setText("Đồng Văn Hiệp C1508L");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("VO VAN SANG Student684616");
+        jLabel13.setText("Lê Minh Thuận C1605L");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 190, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("20/8/2013");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 70, -1));
+        jLabel10.setText("15/02/2017");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 110, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("20/7/2013");
+        jLabel9.setText("09/1/2017");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 176, 80, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("CNC - APTECH");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 95, 90, -1));
+        jLabel7.setText("AprotrainAptech");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 95, 130, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 255, 153));
@@ -153,7 +153,7 @@ public class AboutUs extends javax.swing.JDialog {
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("ACCP1207B");
+        jLabel26.setText("ACCP1508L");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 134, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -184,7 +184,7 @@ public class AboutUs extends javax.swing.JDialog {
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("ATM SYSTEM");
+        jLabel14.setText("DMX-ATM SYSTEM");
         jLabel14.setToolTipText("");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
 
