@@ -26,7 +26,7 @@ public class Admin_Login extends javax.swing.JFrame {
         initComponents();
         this.setSize(0, 0);
         new Thread(new DisplayClose(this, 400, 315)).start();
-        Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.png"));
+        Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.jpg"));
         setIconImage(icon);
     }
 
@@ -334,7 +334,7 @@ public class Admin_Login extends javax.swing.JFrame {
                         lbaccount.setText("");
                     } else {
                         lbaccount.setText("Username or password incorrect!");
-                        Image icon = getToolkit().getImage(getClass().getResource("/images/icon2.png"));
+                        Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.jpg"));
                         setIconImage(icon);
                     }
                 } catch (Exception e) {
@@ -371,7 +371,7 @@ public class Admin_Login extends javax.swing.JFrame {
                         lbaccount.setText("");
                     } else {
                         lbaccount.setText("Username or password incorrect!");
-                        Image icon = getToolkit().getImage(getClass().getResource("/images/icon2.png"));
+                        Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.jpg"));
                         setIconImage(icon);
                     }
                 } catch (Exception e) {
@@ -479,7 +479,7 @@ public class Admin_Login extends javax.swing.JFrame {
                             lbaccount.setText("");
                         } else {
                             lbaccount.setText("Username or password incorrect!");
-                            Image icon = getToolkit().getImage(getClass().getResource("/images/icon2.png"));
+                            Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.jpg"));
                             setIconImage(icon);
                         }
                     } catch (Exception e) {
@@ -521,7 +521,7 @@ public class Admin_Login extends javax.swing.JFrame {
                             lbaccount.setText("");
                         } else {
                             lbaccount.setText("Username or password incorrect!");
-                            Image icon = getToolkit().getImage(getClass().getResource("/images/icon2.png"));
+                            Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.jpg"));
                             setIconImage(icon);
                         }
                     } catch (Exception e) {
