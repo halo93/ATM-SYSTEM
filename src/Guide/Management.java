@@ -126,7 +126,7 @@ public class Management extends javax.swing.JFrame {
     public Management(String user, String pass, String position) throws IOException, Exception {
         setUndecorated(true);
         //image backround
-        setContentPane(new JLabel(new ImageIcon("src/images/managerbg.png")));
+        setContentPane(new JLabel(new ImageIcon("src/images/managerbg.jpg")));
         
         initComponents();
 
@@ -204,7 +204,8 @@ public class Management extends javax.swing.JFrame {
                 AddItemforCombo();
                 ShowRecentSetting();
                 
-                lbpositions.setIcon(new ImageIcon("src/images/adminicon.png"));
+                
+                lbpositions.setText("ADMINSTRATOR");
                 Connect.connectDatabase();
                 CallableStatement call = Connect.connectDatabase().prepareCall("{call ShowAdmin(?)}");
                 call.setString(1, user);
@@ -235,7 +236,7 @@ public class Management extends javax.swing.JFrame {
                 panelbank.setVisible(false);
                 butlimit.setVisible(false);
                 Panellimit.setVisible(false);
-                lbpositions.setIcon(new ImageIcon("src/images/managericon.png"));
+                lbpositions.setText("MANAGER");
                 Connect.connectDatabase();
                 CallableStatement call = Connect.connectDatabase().prepareCall("{call ShowManager(?)}");
                 call.setString(1, user);
@@ -641,7 +642,6 @@ public class Management extends javax.swing.JFrame {
         lbphone = new javax.swing.JLabel();
         lbaddress = new javax.swing.JLabel();
         lbpositions = new javax.swing.JLabel();
-        buthelp = new javax.swing.JButton();
         lbchangepass = new javax.swing.JButton();
         butprofile = new javax.swing.JButton();
         butaccount = new javax.swing.JButton();
@@ -799,17 +799,17 @@ public class Management extends javax.swing.JFrame {
         butlogout.setRolloverEnabled(false);
         butlogout.setVerifyInputWhenFocusTarget(false);
         butlogout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                butlogoutMouseEntered(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 butlogoutMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                butlogoutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 butlogoutMouseExited(evt);
             }
         });
-        getContentPane().add(butlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 70, 60));
+        getContentPane().add(butlogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 80, 80));
 
         lbclose.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close1.png"))); // NOI18N
         lbclose.setToolTipText("");
@@ -920,34 +920,11 @@ public class Management extends javax.swing.JFrame {
         lbaddress.setText("address");
         getContentPane().add(lbaddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 388, -1, -1));
 
+        lbpositions.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        lbpositions.setForeground(new java.awt.Color(255, 255, 255));
         lbpositions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbpositions.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/adminicon.png"))); // NOI18N
-        getContentPane().add(lbpositions, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
-
-        buthelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/helpicon.png"))); // NOI18N
-        buthelp.setBorderPainted(false);
-        buthelp.setContentAreaFilled(false);
-        buthelp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buthelp.setDefaultCapable(false);
-        buthelp.setFocusPainted(false);
-        buthelp.setFocusable(false);
-        buthelp.setRequestFocusEnabled(false);
-        buthelp.setRolloverEnabled(false);
-        buthelp.setVerifyInputWhenFocusTarget(false);
-        buthelp.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                buthelpMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                buthelpMouseEntered(evt);
-            }
-        });
-        buthelp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buthelpActionPerformed(evt);
-            }
-        });
-        getContentPane().add(buthelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 20, 80, 70));
+        lbpositions.setText("ADMINSTRATOR");
+        getContentPane().add(lbpositions, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 260, 110));
 
         lbchangepass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/changepassword1.png"))); // NOI18N
         lbchangepass.setBorderPainted(false);
@@ -962,11 +939,11 @@ public class Management extends javax.swing.JFrame {
         lbchangepass.setRolloverEnabled(false);
         lbchangepass.setVerifyInputWhenFocusTarget(false);
         lbchangepass.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbchangepassMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 lbchangepassMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbchangepassMouseExited(evt);
             }
         });
         lbchangepass.addActionListener(new java.awt.event.ActionListener() {
@@ -987,11 +964,11 @@ public class Management extends javax.swing.JFrame {
         butprofile.setRolloverEnabled(false);
         butprofile.setVerifyInputWhenFocusTarget(false);
         butprofile.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                butprofileMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 butprofileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                butprofileMouseExited(evt);
             }
         });
         butprofile.addActionListener(new java.awt.event.ActionListener() {
@@ -1125,7 +1102,7 @@ public class Management extends javax.swing.JFrame {
                 butaboutusActionPerformed(evt);
             }
         });
-        getContentPane().add(butaboutus, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 80, 70));
+        getContentPane().add(butaboutus, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 80, 70));
 
         paneldeposit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1209,11 +1186,11 @@ public class Management extends javax.swing.JFrame {
         butclear.setRolloverEnabled(false);
         butclear.setVerifyInputWhenFocusTarget(false);
         butclear.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                butclearMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 butclearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                butclearMouseExited(evt);
             }
         });
         butclear.addActionListener(new java.awt.event.ActionListener() {
@@ -1805,7 +1782,7 @@ public class Management extends javax.swing.JFrame {
         ));
         tableaccount.setToolTipText("Double click to edit accoint's profile");
         tableaccount.setColumnControlVisible(true);
-        tableaccount.setName("adminTable");
+        tableaccount.setName("adminTable"); // NOI18N
         tableaccount.setShowHorizontalLines(false);
         tableaccount.setShowVerticalLines(false);
         tableaccount.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2240,29 +2217,7 @@ public class Management extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_formKeyReleased
-    
-    private void buthelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buthelpActionPerformed
-        
-        try {
-            Runtime.getRuntime().exec("hh.exe \"Interface.chm");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }//GEN-LAST:event_buthelpActionPerformed
-    
-    private void buthelpMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buthelpMouseEntered
-        
-        buthelp.setIcon(new ImageIcon("src/images/helpicon1.png"));
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buthelpMouseEntered
-    
-    private void buthelpMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buthelpMouseExited
-        
-        buthelp.setIcon(new ImageIcon("src/images/helpicon.png"));
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buthelpMouseExited
-    
+                
     private void lbchangepassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbchangepassActionPerformed
         
         new ChangePassword(this, true).setVisible(true);
@@ -3587,7 +3542,6 @@ public class Management extends javax.swing.JFrame {
     private javax.swing.JButton butdeposit;
     private javax.swing.JButton buteditbank;
     private javax.swing.JButton buteditmanager;
-    private javax.swing.JButton buthelp;
     private javax.swing.JButton butlimit;
     private javax.swing.JButton butlistmanager;
     private javax.swing.JButton butlogout;

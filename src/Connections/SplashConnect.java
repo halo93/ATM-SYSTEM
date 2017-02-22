@@ -18,8 +18,8 @@ public class SplashConnect extends JWindow {
 
     public void showSplash() {
         JPanel content = (JPanel) getContentPane();
-        int width = 400;
-        int height = 120;
+        int width = 560;
+        int height = 150;
         Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (screen.width - width) / 2;
         int y = (screen.height - height) / 2;
