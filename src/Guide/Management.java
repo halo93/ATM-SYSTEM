@@ -134,7 +134,7 @@ public class Management extends javax.swing.JFrame {
         this.setSize(0, 0);
         new Thread(new DisplayOpen(this, 1000, 600)).start();
         // icon
-        Image icon = getToolkit().getImage(getClass().getResource("/images/iconmanager.png"));
+        Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.png"));
         
         setIconImage(icon);
         /// parametter from longin

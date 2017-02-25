@@ -37,7 +37,7 @@ public class ConfigToServer extends javax.swing.JFrame {
         this.setSize(0, 0);
         new Thread(new DisplayOpen(this, 500, 400)).start();
         txtdatabase.setEditable(false);
-        Image icon = getToolkit().getImage(getClass().getResource("/images/iconmanager.png"));
+        Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.png"));
         setIconImage(icon);
     }
 /// check enter 
