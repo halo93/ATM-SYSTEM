@@ -11,7 +11,7 @@ import org.jdesktop.swingx.JXTable;
 
 /**
  *
- * @author Ngo Luan
+ * @author DMX
  */
 public class Filterbank extends AbstractBean {
 

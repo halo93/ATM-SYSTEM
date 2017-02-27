@@ -19,7 +19,7 @@ import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
- * @author Ngo Luan
+ * @author DMX
  */
 public class Print extends javax.swing.JFrame {
 
