@@ -70,9 +70,6 @@ public class Add_Bank extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         lb1 = new javax.swing.JLabel();
         butclose = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtnote = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -90,11 +87,11 @@ public class Add_Bank extends javax.swing.JDialog {
         butadd.setRolloverEnabled(false);
         butadd.setVerifyInputWhenFocusTarget(false);
         butadd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                butaddMouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 butaddMouseEntered(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                butaddMouseClicked(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 butaddMouseExited(evt);
@@ -157,16 +154,6 @@ public class Add_Bank extends javax.swing.JDialog {
         });
         getContentPane().add(butclose, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 18, 19));
 
-        txtnote.setColumns(20);
-        txtnote.setRows(5);
-        jScrollPane1.setViewportView(txtnote);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 260, 60));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Note :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
-
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgaddnewbank.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -178,9 +165,9 @@ public class Add_Bank extends javax.swing.JDialog {
             if (check()) {
                 try {
                     Connect.connectDatabase();
-                    CallableStatement call = Connect.connectDatabase().prepareCall("{call addbank(?,?)}");
+                    CallableStatement call = Connect.connectDatabase().prepareCall("{call addbank(?)}");
                     call.setString(1, txtnamebank.getText());
-                    call.setString(2, txtnote.getText());
+                    
                     int inser = call.executeUpdate();
                     if (inser > 0) {
                         lb1.setText("Successfully!");
@@ -259,10 +246,7 @@ public class Add_Bank extends javax.swing.JDialog {
     private javax.swing.JButton butcancel;
     private javax.swing.JButton butclose;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb1;
     private javax.swing.JTextField txtnamebank;
-    private javax.swing.JTextArea txtnote;
     // End of variables declaration//GEN-END:variables
 }

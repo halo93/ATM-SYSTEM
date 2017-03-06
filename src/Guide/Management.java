@@ -411,7 +411,6 @@ public class Management extends javax.swing.JFrame {
     
     private void comlumbank() {
         modelbank.addColumn("Banks");
-        modelbank.addColumn("Note");
     }
     
     private void cellbank() {
@@ -422,7 +421,6 @@ public class Management extends javax.swing.JFrame {
             while (rs.next()) {
                 Vector banks = new Vector();
                 banks.add(rs.getString("BankName"));
-                banks.add(rs.getString("Note"));
                 this.modelbank.addRow(banks);
             }
         } catch (Exception e) {
@@ -3747,7 +3745,7 @@ public class Management extends javax.swing.JFrame {
             while (rst.next()) {
                 if (stringkey.equals(rst.getString("AccountID").toString())) {
                     
-                    CallableStatement clt = Connect.connectDatabase().prepareCall("{call InsertREPORTS(?,?,?,?,?,?,?,?,?)}");
+                    CallableStatement clt = Connect.connectDatabase().prepareCall("{call InsertREPORTS(?,?,?,?,?,?,?,?)}");
                     clt.setString(1, "");
                     clt.setString(2, rst.getString("AccountID").toString());
                     clt.setString(3, rst.getString("Fullname").toString());
@@ -3756,7 +3754,6 @@ public class Management extends javax.swing.JFrame {
                     clt.setString(6, stringkey);
                     clt.setFloat(7, rst.getFloat("AccountBalance"));
                     clt.setString(8, cr);
-                    clt.setString(9, null);
                     int reportinsert = clt.executeUpdate();
                     
                     ct.setString(1, stringkey);
