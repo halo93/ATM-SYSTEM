@@ -62,7 +62,7 @@ public class Edit_Bank extends javax.swing.JDialog {
             ResultSet rs = ca.executeQuery();
             while (rs.next()) {
                 txtnamebank.setText(bankname);
-                txtnote.setText(rs.getString("Note"));
+                
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -73,9 +73,6 @@ public class Edit_Bank extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtnote = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtnamebank = new javax.swing.JTextField();
         lb1 = new javax.swing.JLabel();
@@ -87,22 +84,16 @@ public class Edit_Bank extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtnote.setColumns(20);
-        txtnote.setRows(5);
-        jScrollPane1.setViewportView(txtnote);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 260, 60));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("Note :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Bank Name :");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        txtnamebank.setEditable(false);
         txtnamebank.setEnabled(false);
+        txtnamebank.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtnamebankActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtnamebank, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 260, 30));
 
         lb1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -260,10 +251,10 @@ public class Edit_Bank extends javax.swing.JDialog {
             if (check()) {
                 try {
                     Connect.connectDatabase();
-                    CallableStatement call = Connect.connectDatabase().prepareCall("{call ChangeBankname(?,?)}");
+                    CallableStatement call = Connect.connectDatabase().prepareCall("{call ChangeBankname(?)}");
 
                     call.setString(1, txtnamebank.getText());
-                    call.setString(2, txtnote.getText());
+                    
                     int ins = call.executeUpdate();
 
                     if (ins > 0) {
@@ -279,16 +270,18 @@ public class Edit_Bank extends javax.swing.JDialog {
             }
         }
     }//GEN-LAST:event_butchangeMouseClicked
+
+    private void txtnamebankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnamebankActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtnamebankActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bg;
     private javax.swing.JButton butchange;
     private javax.swing.JButton butclose;
     private javax.swing.JButton cancel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb1;
     private javax.swing.JTextField txtnamebank;
-    private javax.swing.JTextArea txtnote;
     // End of variables declaration//GEN-END:variables
 }

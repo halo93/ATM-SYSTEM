@@ -352,17 +352,18 @@ public class Admin_Login extends javax.swing.JFrame {
                     boolean flag = false;
                     while (rs.next()) {
                         String status = rs.getString("Managers_Status");
-                        if (!status.equals("Activated")) {
-                            dispose();
-                            new Block_Managers(this, true, this.txtusername.getText()).setVisible(true);
-                            break;
-                        }
                         if ((rs.getString("Managers_Username").equals(username) && rs.getString("Managers_Password").equals(password))) {
                             flag = true;
                             break;
                         } else {
                             flag = false;
                         }
+                        if (!status.equals("Activated")) {
+                            dispose();
+                            new Block_Managers(this, true, this.txtusername.getText()).setVisible(true);
+                            break;
+                        }
+                        
                     }
                     if (flag) {
                         Management a = new Management(txtusername.getText(), MD5.encryptMD5(new String(this.txtpassword.getPassword())), radiomanager.getText());
@@ -498,12 +499,15 @@ public class Admin_Login extends javax.swing.JFrame {
                         boolean flag = false;
                         while (rs.next()) {
                             String status = rs.getString("Managers_Status");
-                            if (!status.equals("Activated")) {
+                            System.out.println("flag tuoc dang false");
+                            if (status.equals("Blocked")) {
                                 dispose();
+                                flag = false;
                                 new Block_Managers(this, true, this.txtusername.getText()).setVisible(true);
                                 break;
                             }
-                            if ((rs.getString("Managers_Username").equals(username) && rs.getString("Managers_Password").equals(password))) {
+                            System.out.println("flag sau check if 1"+flag);
+                            if ((rs.getString("Managers_Username").equals(username) && rs.getString("Managers_Password").equals(password)&& status.equals("Activated"))) {
                                 flag = true;
                                 break;
                             } else {
@@ -511,6 +515,7 @@ public class Admin_Login extends javax.swing.JFrame {
                             }
 
                         }
+                        
                         if (flag) {
                             Management a = new Management(txtusername.getText(), MD5.encryptMD5(new String(this.txtpassword.getPassword())), radiomanager.getText());
                             a.setVisible(true);

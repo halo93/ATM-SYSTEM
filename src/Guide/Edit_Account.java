@@ -81,7 +81,7 @@ public class Edit_Account extends javax.swing.JDialog {
                     this.standardModel.addElement("Blocked");
                     this.comstatus.addItem("Activated");
                 }
-                txtnote.setText(res.getString("Note"));
+                
                 this.txtidmanager.setText(managerID);
             }
         } catch (Exception e) {
@@ -203,9 +203,6 @@ public class Edit_Account extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         combank = new javax.swing.JComboBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtnote = new javax.swing.JTextArea();
-        jLabel15 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         txtBalance = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
@@ -459,18 +456,6 @@ public class Edit_Account extends javax.swing.JDialog {
         combank.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-----" }));
         jPanel2.add(combank, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 190, -1));
 
-        txtnote.setColumns(20);
-        txtnote.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
-        txtnote.setForeground(new java.awt.Color(0, 0, 204));
-        txtnote.setRows(5);
-        jScrollPane1.setViewportView(txtnote);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 210, 110));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel15.setText("Note :");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setText("Balance : ");
         jPanel2.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 20));
@@ -696,7 +681,7 @@ public class Edit_Account extends javax.swing.JDialog {
             if (check()) {
                 try {
                     Connect.connectDatabase();
-                    CallableStatement cs = Connect.connectDatabase().prepareCall("{call ChangeAccount(?,?,?,?,?,?,?,?,?,?,?)}");
+                    CallableStatement cs = Connect.connectDatabase().prepareCall("{call ChangeAccount(?,?,?,?,?,?,?,?,?,?)}");
 
                     cs.setString(1, this.txtcard.getText());
                     cs.setString(2, this.txtfullname.getText());
@@ -725,7 +710,7 @@ public class Edit_Account extends javax.swing.JDialog {
                     }
                     cs.setString(9, txtBalance.getText());
                     cs.setString(10, comstatus.getSelectedItem().toString());
-                    cs.setString(11, this.txtnote.getText().toString());
+                    
                     int ins = cs.executeUpdate();
                     if (ins > 0) {
                         lbwarning.setText("Successfully!");
@@ -757,7 +742,6 @@ public class Edit_Account extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -778,7 +762,6 @@ public class Edit_Account extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lb1;
     private javax.swing.JLabel lb2;
@@ -793,7 +776,6 @@ public class Edit_Account extends javax.swing.JDialog {
     private javax.swing.JTextField txtdatecreate;
     private javax.swing.JTextField txtfullname;
     private javax.swing.JTextField txtidmanager;
-    private javax.swing.JTextArea txtnote;
     private javax.swing.JTextField txtphone;
     private javax.swing.JTextField txtresident;
     // End of variables declaration//GEN-END:variables

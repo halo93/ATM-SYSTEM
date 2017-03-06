@@ -163,9 +163,6 @@ public class Add_Account extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         combank = new javax.swing.JComboBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtnote = new javax.swing.JTextArea();
-        jLabel15 = new javax.swing.JLabel();
         txtcard = new javax.swing.JTextField();
         txtdatecreate = new javax.swing.JTextField();
         lberror = new javax.swing.JLabel();
@@ -379,18 +376,6 @@ public class Add_Account extends javax.swing.JDialog {
         combank.setForeground(new java.awt.Color(0, 0, 255));
         jPanel2.add(combank, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 210, -1));
 
-        txtnote.setColumns(20);
-        txtnote.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
-        txtnote.setForeground(new java.awt.Color(0, 0, 255));
-        txtnote.setRows(5);
-        jScrollPane1.setViewportView(txtnote);
-
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 230, 120));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel15.setText("Note :");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
-
         txtcard.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtcard.setForeground(new java.awt.Color(0, 0, 255));
         txtcard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -527,7 +512,7 @@ public class Add_Account extends javax.swing.JDialog {
                 cs.setString(11, "0");
                 cs.setString(12, "Activated");
                 cs.setString(13, this.managerID);
-                cs.setString(14, this.txtnote.getText().toString());
+                
                 int inser = cs.executeUpdate();
                 if (inser > 0) {
                     lbwarning.setText("Insert successfully!");
@@ -705,7 +690,7 @@ public class Add_Account extends javax.swing.JDialog {
             if (check()) {
                 try {
                     Connect.connectDatabase();
-                    CallableStatement cs = Connect.connectDatabase().prepareCall("{call InsertAccount(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+                    CallableStatement cs = Connect.connectDatabase().prepareCall("{call InsertAccount(?,?,?,?,?,?,?,?,?,?,?,?,?)}");
                     //// account number
                     String charac = this.txtcard.getText();
                     if (charac.length() < 14) {
@@ -750,7 +735,7 @@ public class Add_Account extends javax.swing.JDialog {
                     cs.setString(11, "0");
                     cs.setString(12, "Activated");
                     cs.setString(13, this.managerID);
-                    cs.setString(14, this.txtnote.getText().toString());
+                    
                     int inser = cs.executeUpdate();
                     if (inser > 0) {
                         lbwarning.setText("Insert successfully!");
@@ -781,7 +766,6 @@ public class Add_Account extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -794,7 +778,6 @@ public class Add_Account extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lb1;
@@ -810,7 +793,6 @@ public class Add_Account extends javax.swing.JDialog {
     private javax.swing.JTextField txtcard;
     private javax.swing.JTextField txtdatecreate;
     private javax.swing.JTextField txtfullname;
-    private javax.swing.JTextArea txtnote;
     private javax.swing.JTextField txtphone;
     private javax.swing.JTextField txtresident;
     // End of variables declaration//GEN-END:variables
