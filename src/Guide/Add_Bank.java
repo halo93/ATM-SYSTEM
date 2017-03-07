@@ -17,7 +17,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author Ngo Luan
+ * @author DMX
  */
 public class Add_Bank extends javax.swing.JDialog {
 

@@ -22,7 +22,7 @@ import org.jdesktop.swingx.auth.KeyChain;
 
 /**
  *
- * @author Ngo Luan
+ * @author DMX
  */
 public class Add_Account extends javax.swing.JDialog {
 
