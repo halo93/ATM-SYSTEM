@@ -486,8 +486,8 @@ public class Add_Manager extends javax.swing.JDialog {
                         cs.setString(6, this.Female.getText());
                     }
                     cs.setString(7, this.txtphone.getText());
-                    cs.setString(8, this.txtemail.getText());
-                    cs.setString(9, this.txtaddress.getText());
+                    cs.setString(8, this.txtaddress.getText());
+                    cs.setString(9, this.txtemail.getText());
                     cs.setString(10, "Activated");
                     cs.setString(11, "admin");
                     int inser = cs.executeUpdate();
