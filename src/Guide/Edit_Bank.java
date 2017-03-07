@@ -88,7 +88,6 @@ public class Edit_Bank extends javax.swing.JDialog {
         jLabel1.setText("Bank Name :");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        txtnamebank.setEnabled(false);
         txtnamebank.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnamebankActionPerformed(evt);
@@ -108,7 +107,6 @@ public class Edit_Bank extends javax.swing.JDialog {
         butchange.setFocusPainted(false);
         butchange.setFocusable(false);
         butchange.setRequestFocusEnabled(false);
-        butchange.setRolloverEnabled(false);
         butchange.setVerifyInputWhenFocusTarget(false);
         butchange.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -131,7 +129,6 @@ public class Edit_Bank extends javax.swing.JDialog {
         cancel.setFocusPainted(false);
         cancel.setFocusable(false);
         cancel.setRequestFocusEnabled(false);
-        cancel.setRolloverEnabled(false);
         cancel.setVerifyInputWhenFocusTarget(false);
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -155,7 +152,6 @@ public class Edit_Bank extends javax.swing.JDialog {
         butclose.setFocusPainted(false);
         butclose.setFocusable(false);
         butclose.setRequestFocusEnabled(false);
-        butclose.setRolloverEnabled(false);
         butclose.setVerifyInputWhenFocusTarget(false);
         butclose.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -248,24 +244,30 @@ public class Edit_Bank extends javax.swing.JDialog {
 
     private void butchangeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_butchangeMouseClicked
         if (evt.getClickCount() == 1) {
+            System.out.println(check());
             if (check()) {
                 try {
                     Connect.connectDatabase();
                     CallableStatement call = Connect.connectDatabase().prepareCall("{call ChangeBankname(?)}");
-
                     call.setString(1, txtnamebank.getText());
                     
                     int ins = call.executeUpdate();
-
+                             
+                    
+                    System.out.println(txtnamebank.getText());
+                    System.out.println("");
                     if (ins > 0) {
+                        System.out.println("bbb");
                         lb1.setText("Successfully!");
                         timel();
+                        
                         thoigian.start();
                         this.setSize(509, 270);
                         new Thread(new DisplayClose(this, 0, 0)).start();
                     }
                 } catch (Exception ex) {
-                    Logger.getLogger(Edit_Bank.class.getName()).log(Level.SEVERE, null, ex);
+//                    Logger.getLogger(Edit_Bank.class.getName()).log(Level.SEVERE, null, ex);
+ex.printStackTrace();
                 }
             }
         }
