@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.Timer;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**

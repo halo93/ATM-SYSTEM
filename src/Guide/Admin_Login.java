@@ -309,78 +309,92 @@ public class Admin_Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtusernameActionPerformed
     public void checklogin() {
         if (check()) {
-            if (radioadministrator.isSelected()) {
-                encryptionMD5 MD5 = new encryptionMD5();
-                String username = this.txtusername.getText();
-                String password = MD5.encryptMD5(new String(this.txtpassword.getPassword()));
-                try {
-                    Connect.connectDatabase();
-                    CallableStatement csta = Connect.connectDatabase().prepareCall("{call Login_Amin}");
-                    ResultSet rs = csta.executeQuery();
-                    boolean flag = false;
+                if (radioadministrator.isSelected()) {
+                    encryptionMD5 MD5 = new encryptionMD5();
+                    String username = this.txtusername.getText();
+                    String password = MD5.encryptMD5(new String(this.txtpassword.getPassword()));
+                    try {
+                        Connect.connectDatabase();
+                        CallableStatement csta = Connect.connectDatabase().prepareCall("{call Login_Amin}");
+                        ResultSet rs = csta.executeQuery();
+                        boolean flag = false;
 
-                    while (rs.next()) {
-                        if ((rs.getString("Admin_Username").equals(username) && rs.getString("Admin_Password").equals(password))) {
-                            flag = true;
-                            break;
-                        } else {
-                            flag = false;
+                        while (rs.next()) {
+                            if ((rs.getString("Admin_Username").equals(username) && rs.getString("Admin_Password").equals(password))) {
+                                flag = true;
+                                break;
+                            } else {
+                                flag = false;
+                            }
                         }
-                    }
-                    if (flag) {
-                        Management a = new Management(txtusername.getText(), MD5.encryptMD5(new String(this.txtpassword.getPassword())), radioadministrator.getText());
-                        a.setVisible(true);
-                        this.dispose();
-                        lbaccount.setText("");
-                    } else {
-                        lbaccount.setText("Username or password incorrect!");
-                        Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.png"));
-                        setIconImage(icon);
-                    }
-                } catch (Exception e) {
-                    System.out.println("Can not connect to database!");
-                    e.printStackTrace();
-                }
-            } else if (radiomanager.isSelected()) {
-                encryptionMD5 MD5 = new encryptionMD5();
-                String username = this.txtusername.getText();
-                String password = MD5.encryptMD5(new String(this.txtpassword.getPassword()));
-                try {
-                    Connect.connectDatabase();
-                    CallableStatement csta = Connect.connectDatabase().prepareCall("{call Login_Manager}");
-                    ResultSet rs = csta.executeQuery();
-                    boolean flag = false;
-                    while (rs.next()) {
-                        String status = rs.getString("Managers_Status");
-                        if ((rs.getString("Managers_Username").equals(username) && rs.getString("Managers_Password").equals(password))) {
-                            flag = true;
-                            break;
+                        if (flag) {
+                            Management a = new Management(txtusername.getText(), MD5.encryptMD5(new String(this.txtpassword.getPassword())), radioadministrator.getText());
+                            a.setVisible(true);
+                            timel();
+                            time.start();
+                            this.setSize(400, 315);
+                            new Thread(new DisplayOpen(this, 0, 0)).start();
+                            lbaccount.setText("");
                         } else {
-                            flag = false;
+                            lbaccount.setText("Username or password incorrect!");
+                            Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.png"));
+                            setIconImage(icon);
                         }
-                        if (!status.equals("Activated")) {
-                            dispose();
-                            new Block_Managers(this, true, this.txtusername.getText()).setVisible(true);
-                            break;
+                    } catch (Exception e) {
+                        System.out.println("Can not connect to database!");
+                        e.printStackTrace();
+                    }
+                } else if (radiomanager.isSelected()) {
+                    encryptionMD5 MD5 = new encryptionMD5();
+                    String username = this.txtusername.getText();
+
+                    String password = MD5.encryptMD5(new String(this.txtpassword.getPassword()));
+                    try {
+                        Connect.connectDatabase();
+                        CallableStatement csta = Connect.connectDatabase().prepareCall("{call Login_Manager}");
+                        ResultSet rs = csta.executeQuery();
+                        System.out.println(rs);
+                        boolean flag = false;
+                        while(rs.next()){
+                            System.out.println(rs.getString("Managers_Username"));
+                            System.out.println(rs.getString("Managers_Password"));
+                            if (username.equals(rs.getString("Managers_Username"))&& password.equals(rs.getString("Managers_Password"))) {
+                                
+                                String statut= rs.getString("Managers_Status");
+                                if (!statut.equals("Activated")) {
+                                    System.out.println("Blocked");
+                                    dispose();
+                                    new Block_Managers(this, true, this.txtusername.getText()).setVisible(true);
+                                }
+                                else{
+                                    System.out.println("Activated");
+                                    flag=true;
+                                }
+                                
+                            }
                         }
                         
+                        System.out.println(flag);
+                        if (flag) {
+                            Management a = new Management(txtusername.getText(), MD5.encryptMD5(new String(this.txtpassword.getPassword())), radiomanager.getText());
+                            a.setVisible(true);
+                            timel();
+                            time.start();
+                            this.setSize(400, 315);
+                            new Thread(new DisplayOpen(this, 0, 0)).start();
+                            lbaccount.setText("");
+                        } else {
+                            lbaccount.setText("Username or password incorrect!");
+                            Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.png"));
+                            setIconImage(icon);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Can not connect to database!");
+                        e.printStackTrace();
+
                     }
-                    if (flag) {
-                        Management a = new Management(txtusername.getText(), MD5.encryptMD5(new String(this.txtpassword.getPassword())), radiomanager.getText());
-                        a.setVisible(true);
-                        this.dispose();
-                        lbaccount.setText("");
-                    } else {
-                        lbaccount.setText("Username or password incorrect!");
-                        Image icon = getToolkit().getImage(getClass().getResource("/images/icon1.png"));
-                        setIconImage(icon);
-                    }
-                } catch (Exception e) {
-                    System.out.println("Can not connect to database!");
-                    e.printStackTrace();
                 }
             }
-        }
     }
     private void txtpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtpasswordActionPerformed
         checklogin();
@@ -496,26 +510,28 @@ public class Admin_Login extends javax.swing.JFrame {
                         Connect.connectDatabase();
                         CallableStatement csta = Connect.connectDatabase().prepareCall("{call Login_Manager}");
                         ResultSet rs = csta.executeQuery();
+                        System.out.println(rs);
                         boolean flag = false;
-                        while (rs.next()) {
-                            String status = rs.getString("Managers_Status");
-                            System.out.println("flag tuoc dang false");
-                            if (status.equals("Blocked")) {
-                                dispose();
-                                flag = false;
-                                new Block_Managers(this, true, this.txtusername.getText()).setVisible(true);
-                                break;
+                        while(rs.next()){
+                            System.out.println(rs.getString("Managers_Username"));
+                            System.out.println(rs.getString("Managers_Password"));
+                            if (username.equals(rs.getString("Managers_Username"))&& password.equals(rs.getString("Managers_Password"))) {
+                                
+                                String statut= rs.getString("Managers_Status");
+                                if (!statut.equals("Activated")) {
+                                    System.out.println("Blocked");
+                                    dispose();
+                                    new Block_Managers(this, true, this.txtusername.getText()).setVisible(true);
+                                }
+                                else{
+                                    System.out.println("Activated");
+                                    flag=true;
+                                }
+                                
                             }
-                            System.out.println("flag sau check if 1"+flag);
-                            if ((rs.getString("Managers_Username").equals(username) && rs.getString("Managers_Password").equals(password)&& status.equals("Activated"))) {
-                                flag = true;
-                                break;
-                            } else {
-                                flag = false;
-                            }
-
                         }
                         
+                        System.out.println(flag);
                         if (flag) {
                             Management a = new Management(txtusername.getText(), MD5.encryptMD5(new String(this.txtpassword.getPassword())), radiomanager.getText());
                             a.setVisible(true);
