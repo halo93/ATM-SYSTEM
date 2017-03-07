@@ -411,7 +411,6 @@ public class Reportsearching extends javax.swing.JFrame {
         tmod.addColumn("Beneficiary");
         tmod.addColumn("Balance");
         tmod.addColumn("Dates");
-        tmod.addColumn("Notes");
     }
 
     private void LoadingDataSearch(String RegID) {
@@ -440,7 +439,6 @@ public class Reportsearching extends javax.swing.JFrame {
                 dulieu.add(dt1.format(date));
 
 
-                dulieu.add(rst.getString("Report_Note"));
                 DateTime start = new DateTime(
                         rst.getDate("ReportDate").getYear() + 1900,
                         rst.getDate("ReportDate").getMonth() + 1,
@@ -570,7 +568,8 @@ public class Reportsearching extends javax.swing.JFrame {
             }
 
         } catch (Exception e) {
-            System.out.println("An error has occurred!");
+            //System.out.println("An error has occurred!");
+            e.printStackTrace();
         }
     }
     Connection con = null;
@@ -617,7 +616,6 @@ public class Reportsearching extends javax.swing.JFrame {
 
                 dulieu.add(dt1.format(date));
 
-                dulieu.add(rst.getString("Report_Note"));
 
                 if (txtyearsearch.getText().toString().equals("")
                         || txtmonthsearch.getText().toString().equals("")

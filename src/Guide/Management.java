@@ -3702,7 +3702,7 @@ public class Management extends javax.swing.JFrame {
         String stringkey = key1 + key2 + key3;
         try {
             Connect.connectDatabase();
-            CallableStatement trc = Connect.connectDatabase().prepareCall("{call InsertDEPOSIT(?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement trc = Connect.connectDatabase().prepareCall("{call InsertDEPOSIT(?,?,?,?,?,?,?,?,?)}");
             
             trc.setString(1, txtnameben.getText().toString());
             trc.setString(2, this.txtcardno.getText().toString());
@@ -3714,7 +3714,6 @@ public class Management extends javax.swing.JFrame {
             trc.setFloat(7, Float.parseFloat(this.txtmoneyben.getText().toString()));
             trc.setFloat(8, 0);
             trc.setFloat(9, Float.parseFloat(this.txtmoneyben.getText().toString()));
-            trc.setString(10, null);
             
             trc.executeUpdate();
             
